@@ -60,6 +60,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
               <Component id="btn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <Component id="btn02" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -98,7 +100,10 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <Component id="btn" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn02" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -142,7 +147,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&#xc0; vista (20% de desconto)"/>
+        <Property name="text" type="java.lang.String" value="Boleto (20% de desconto)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rb2">
@@ -213,6 +218,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ex: Mesal, Semestral ou Anual"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn02">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cotar Plano"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn02ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

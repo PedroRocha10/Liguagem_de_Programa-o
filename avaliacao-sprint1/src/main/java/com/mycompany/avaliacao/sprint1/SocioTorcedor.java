@@ -44,6 +44,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ta = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
+        btn02 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,7 +61,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
         });
 
         buttonGroup2.add(rb1);
-        rb1.setText("À vista (20% de desconto)");
+        rb1.setText("Boleto (20% de desconto)");
 
         buttonGroup2.add(rb2);
         rb2.setSelected(true);
@@ -103,6 +104,13 @@ public class SocioTorcedor extends javax.swing.JFrame {
 
         jLabel5.setText("Ex: Mesal, Semestral ou Anual");
 
+        btn02.setText("Cotar Plano");
+        btn02.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn02ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,6 +141,8 @@ public class SocioTorcedor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(210, 210, 210)
                 .addComponent(btn)
+                .addGap(39, 39, 39)
+                .addComponent(btn02)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -165,7 +175,9 @@ public class SocioTorcedor extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(btn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn)
+                    .addComponent(btn02))
                 .addGap(36, 36, 36))
         );
 
@@ -204,6 +216,17 @@ public class SocioTorcedor extends javax.swing.JFrame {
     }//GEN-LAST:event_rb2ActionPerformed
 
     private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
+
+            
+           
+       
+    }//GEN-LAST:event_comboBoxActionPerformed
+
+    private void rb3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rb3ActionPerformed
+
+    private void btn02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn02ActionPerformed
         Double mensal;
         Double semestral;
         Double anual;
@@ -220,8 +243,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
             ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
                     + "%.2f \n Plano anual: %.2f",
                     mensal, semestral, anual));
-            
-            if (comboBox.getSelectedItem().equals("Sou Tricolor") && rb1.isSelected()) {
+             if (comboBox.getSelectedItem().equals("Sou Tricolor") && rb1.isSelected()) {
             
             ta.setText("");
                 
@@ -256,7 +278,8 @@ public class SocioTorcedor extends javax.swing.JFrame {
             }
             
         }
-        if (comboBox.getSelectedItem().equals("Vamos São Paulo")) {
+        
+         if (comboBox.getSelectedItem().equals("Vamos São Paulo")) {
             mensal = 19.00;
             semestral = 114.00;
             anual = 228.00;
@@ -379,11 +402,8 @@ public class SocioTorcedor extends javax.swing.JFrame {
             }
            
         }
-    }//GEN-LAST:event_comboBoxActionPerformed
-
-    private void rb3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rb3ActionPerformed
+            
+    }//GEN-LAST:event_btn02ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -422,6 +442,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn;
+    private javax.swing.JButton btn02;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> comboBox;
     private javax.swing.JLabel jLabel1;
