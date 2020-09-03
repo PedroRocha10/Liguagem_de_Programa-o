@@ -45,6 +45,11 @@ public class SocioTorcedor extends javax.swing.JFrame {
         ta = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         btn02 = new javax.swing.JButton();
+        tfParc = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tp = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,7 +66,12 @@ public class SocioTorcedor extends javax.swing.JFrame {
         });
 
         buttonGroup2.add(rb1);
-        rb1.setText("Boleto (20% de desconto)");
+        rb1.setText("Boleto à vista (20% de desconto)");
+        rb1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb1ActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(rb2);
         rb2.setSelected(true);
@@ -73,7 +83,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
         });
 
         buttonGroup2.add(rb3);
-        rb3.setText("Cartão de Débito (10% de desconto)");
+        rb3.setText("Cartão de Débito à vista (10% de desconto)");
         rb3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rb3ActionPerformed(evt);
@@ -99,6 +109,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
         jLabel4.setText("Escolha forma de pagamento");
 
         ta.setColumns(20);
+        ta.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         ta.setRows(5);
         jScrollPane1.setViewportView(ta);
 
@@ -111,74 +122,108 @@ public class SocioTorcedor extends javax.swing.JFrame {
             }
         });
 
+        tfParc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfParcActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Em quantas vezes será parcelado?");
+
+        jLabel7.setText("Min: 1 e Max: 8");
+
+        tp.setColumns(20);
+        tp.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        tp.setRows(5);
+        jScrollPane3.setViewportView(tp);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rb3)
-                            .addComponent(rb2)
-                            .addComponent(rb1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(25, 25, 25))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(btn)
-                .addGap(39, 39, 39)
-                .addComponent(btn02)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tfParc, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel7)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(rb3)
+                                                    .addComponent(rb1))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(rb2)
+                                                    .addGap(74, 74, 74))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 80, Short.MAX_VALUE))
+                                            .addComponent(jScrollPane3)
+                                            .addComponent(jScrollPane1)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btn02)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(5, 5, 5)))
+                        .addGap(10, 10, 10))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfParc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(rb2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rb3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb1)
-                        .addGap(12, 12, 12))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(rb1))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn)
                     .addComponent(btn02))
-                .addGap(36, 36, 36))
+                .addContainerGap())
         );
 
         pack();
@@ -199,9 +244,27 @@ public class SocioTorcedor extends javax.swing.JFrame {
                
            }
            
+           else if(lbl.getText().toLowerCase().equals("mensal")){
+               
+           JOptionPane.showMessageDialog(null, "Solicitação concluida",null,WIDTH);
+               
+           }
+           
+           else if(lbl.getText().toLowerCase().equals("semestral")){
+               
+           JOptionPane.showMessageDialog(null, "Solicitação concluida",null,WIDTH);
+               
+           }
+           
+           else if(lbl.getText().toLowerCase().equals("anual")){
+               
+           JOptionPane.showMessageDialog(null, "Solicitação concluida",null,WIDTH);
+               
+           }
+           
            else{
               
-               JOptionPane.showMessageDialog(null, "Solicitação concluida ",null,WIDTH);
+               JOptionPane.showMessageDialog(null, "Preencha Corretamente formato do plano",null,WIDTH);
                
            }
        
@@ -233,6 +296,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
         
         if (comboBox.getSelectedItem().equals("Escolha seu plano")) {
             ta.setText(" ");
+            tp.setText(" ");
         }
         if (comboBox.getSelectedItem().equals("Sou Tricolor")) {
             mensal = 12.00;
@@ -240,7 +304,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
             anual = 144.00;
          
             
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
+            ta.setText(String.format(" Plano mensal: %.2f \n Plano semestral: "
                     + "%.2f \n Plano anual: %.2f",
                     mensal, semestral, anual));
              if (comboBox.getSelectedItem().equals("Sou Tricolor") && rb1.isSelected()) {
@@ -253,10 +317,13 @@ public class SocioTorcedor extends javax.swing.JFrame {
             semestral = 72.00-(semestral*desconto);
             anual = 144.00-(anual*desconto);
          
+            Double descM = 12.00*desconto;
+            Double descS = 72.00*desconto;
+            Double descA = 144.00*desconto;
             
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
-                    + "%.2f \n Plano anual: %.2f",
-                    mensal, semestral, anual));
+            ta.setText(String.format(" Plano mensal: %.2f - desconto de %.2f reais\n Plano semestral: "
+                    + "%.2f - desconto de %.2f reais\n Plano anual: %.2f - desconto de %.2f reais ",
+                    mensal,descM, semestral,descS, anual,descA));
             
             }
             
@@ -270,11 +337,33 @@ public class SocioTorcedor extends javax.swing.JFrame {
             semestral = 72.00-(semestral*desconto);
             anual = 144.00-(anual*desconto);
          
+            Double descM = 12.00*desconto;
+            Double descS = 72.00*desconto;
+            Double descA = 144.00*desconto;
             
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
-                    + "%.2f \n Plano anual: %.2f",
-                    mensal, semestral, anual));
+            ta.setText(String.format(" Plano mensal: %.2f - desconto de %.2f reais\n Plano semestral: "
+                    + "%.2f - desconto de %.2f reais\n Plano anual: %.2f - desconto de %.2f reais",
+                    mensal,descM, semestral,descS, anual,descA));
             
+            }
+            
+            String num1 = tfParc.getText();
+                     
+            Integer parcela = Integer.valueOf(num1);
+            
+            if ( parcela > 0 && parcela <=8 && rb2.isSelected()) {
+                
+                Double parcFinal1 = mensal/parcela;
+                        
+                Double parcFinal2 = semestral/parcela;
+                                
+                Double parcFinal3 = anual/parcela;
+                
+                tp.setText(String.format("Você irá pagar semestralmente %sX de: %.2f \n"
+                        +"Você irá pagar anualmente %sX de: %.2f"
+                        ,num1,parcFinal2,num1,parcFinal3));
+            }else{
+                tp.setText("Esta forma de pagamento \nnão permite parcelamento");
             }
             
         }
@@ -284,7 +373,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
             semestral = 114.00;
             anual = 228.00;
        
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
+            ta.setText(String.format(" Plano mensal: %.2f \n Plano semestral: "
                     + "%.2f \n Plano anual: %.2f",
                     mensal, semestral, anual));
             
@@ -296,11 +385,15 @@ public class SocioTorcedor extends javax.swing.JFrame {
             mensal = 19.00-(mensal*desconto);
             semestral = 114.00-(semestral*desconto);
             anual = 228.00-(anual*desconto);
+            
+            Double descM = 19.00*desconto;
+            Double descS = 114.00*desconto;
+            Double descA = 228.00*desconto;
          
             
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
-                    + "%.2f \n Plano anual: %.2f",
-                    mensal, semestral, anual));
+            ta.setText(String.format(" Plano mensal: %.2f - desconto de %.2f reais\n Plano semestral: "
+                    + "%.2f - desconto de %.2f reais\n Plano anual: %.2f - desconto de %.2f reais",
+                    mensal,descM, semestral,descS, anual,descA));
             
             }
             
@@ -311,12 +404,32 @@ public class SocioTorcedor extends javax.swing.JFrame {
             mensal = 19.00-(mensal*desconto);
             semestral = 114.00-(semestral*desconto);
             anual = 228.00-(anual*desconto);
+            
+            Double descM = 19.00*desconto;
+            Double descS = 114.00*desconto;
+            Double descA = 228.00*desconto;
          
             
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
-                    + "%.2f \n Plano anual: %.2f",
-                    mensal, semestral, anual));
+            ta.setText(String.format(" Plano mensal: %.2f - desconto de %.2f reais\n Plano semestral: "
+                    + "%.2f - desconto de %.2f reais\n Plano anual: %.2f - desconto de %.2f reais",
+                    mensal,descM, semestral,descS, anual,descA));
             
+            }
+            
+            String num1 = tfParc.getText();
+                     
+            Integer parcela = Integer.valueOf(num1);
+            
+            if ( parcela > 0 && parcela <=8 && rb2.isSelected()) {        
+                Double parcFinal2 = semestral/parcela;
+                                
+                Double parcFinal3 = anual/parcela;
+                
+                tp.setText(String.format("Você irá pagar semestralmente %sX de: %.2f \n"
+                        +"Você irá pagar anualmente %sX de: %.2f"
+                        ,num1,parcFinal2,num1,parcFinal3));
+            }else{
+                tp.setText("Esta forma de pagamento \nnão permite parcelamento");
             }
             
         }
@@ -326,7 +439,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
             anual = 828.00;
           
             
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
+            ta.setText(String.format(" Plano mensal: %.2f \n Plano semestral: "
                     + "%.2f \n Plano anual: %.2f",
                     mensal, semestral, anual));
             
@@ -338,10 +451,13 @@ public class SocioTorcedor extends javax.swing.JFrame {
             semestral = 414.00-(semestral*desconto);
             anual = 828.00-(anual*desconto);
          
+            Double descM = 69.00*desconto;
+            Double descS = 414.00*desconto;
+            Double descA = 828.00*desconto;
             
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
-                    + "%.2f \n Plano anual: %.2f",
-                    mensal, semestral, anual));
+            ta.setText(String.format(" Plano mensal: %.2f - desconto de %.2f reais\n Plano semestral: "
+                    + "%.2f - desconto de %.2f reais\n Plano anual: %.2f - desconto de %.2f reais",
+                   mensal,descM, semestral,descS, anual,descA));
             
             }
             
@@ -353,11 +469,30 @@ public class SocioTorcedor extends javax.swing.JFrame {
             semestral = 414.00-(semestral*desconto);
             anual = 828.00-(anual*desconto);
          
+            Double descM = 69.00*desconto;
+            Double descS = 414.00*desconto;
+            Double descA = 828.00*desconto;
             
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
-                    + "%.2f \n Plano anual: %.2f",
-                    mensal, semestral, anual));
+            ta.setText(String.format(" Plano mensal: %.2f - desconto de %.2f reais\n Plano semestral: "
+                    + "%.2f - desconto de %.2f reais\n Plano anual: %.2f - desconto de %.2f reais",
+                    mensal,descM, semestral,descS, anual,descA));
             
+            }
+            
+            String num1 = tfParc.getText();
+                     
+            Integer parcela = Integer.valueOf(num1);
+            
+            if ( parcela > 0 && parcela <=8 && rb2.isSelected()) {
+                Double parcFinal2 = semestral/parcela;
+                                
+                Double parcFinal3 = anual/parcela;
+                
+                tp.setText(String.format("Você irá pagar semestralmente %sX de: %.2f \n"
+                        +"Você irá pagar anualmente %sX de: %.2f"
+                        ,num1,parcFinal2,num1,parcFinal3));
+            }else{
+                tp.setText("Esta forma de pagamento \nnão permite parcelamento");
             }
             
         }
@@ -367,7 +502,7 @@ public class SocioTorcedor extends javax.swing.JFrame {
             anual = 1200.00;
             
             
-           ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
+           ta.setText(String.format(" Plano mensal: %.2f \n Plano semestral: "
                     + "%.2f \n Plano anual: %.2f",
                     mensal, semestral,anual));
             
@@ -379,10 +514,13 @@ public class SocioTorcedor extends javax.swing.JFrame {
             semestral = 600.00-(semestral*desconto);
             anual = 1200.00-(anual*desconto);
          
+            Double descM = 100.00*desconto;
+            Double descS = 600.00*desconto;
+            Double descA = 1200.00*desconto;
             
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
-                    + "%.2f \n Plano anual: %.2f",
-                    mensal, semestral, anual));
+            ta.setText(String.format(" Plano mensal: %.2f - desconto de %.2f reais\n Plano semestral: "
+                    + "%.2f - desconto de %.2f reais\n Plano anual: %.2f - desconto de %.2f reais",
+                   mensal,descM, semestral,descS, anual,descA));
             
             }
             
@@ -394,16 +532,44 @@ public class SocioTorcedor extends javax.swing.JFrame {
             semestral = 600.00-(semestral*desconto);
             anual = 1200.00-(anual*desconto);
          
+            Double descM = 100.00*desconto;
+            Double descS = 600.00*desconto;
+            Double descA = 1200.00*desconto;
             
-            ta.setText(String.format("Plano mensal: %.2f \n Plano semestral: "
-                    + "%.2f \n Plano anual: %.2f",
-                    mensal, semestral, anual));
+            ta.setText(String.format(" Plano mensal: %.2f - desconto de %.2f reais\n Plano semestral: "
+                    + "%.2f - desconto de %.2f reais\n Plano anual: %.2f - desconto de %.2f reais",
+                    mensal,descM, semestral,descS, anual,descA));
             
+            }
+            
+            String num1 = tfParc.getText();
+                     
+            Integer parcela = Integer.valueOf(num1);
+            
+            if ( parcela > 0 && parcela <=8 && rb2.isSelected()) {
+                        
+                Double parcFinal2 = semestral/parcela;
+                                
+                Double parcFinal3 = anual/parcela;
+                
+                tp.setText(String.format("Você irá pagar semestralmente %sX de: %.2f \n"
+                        +"Você irá pagar anualmente %sX de: %.2f"
+                        ,num1,parcFinal2,num1,parcFinal3));
+            }else{
+                tp.setText("Esta forma de pagamento \nnão permite parcelamento");
             }
            
         }
             
     }//GEN-LAST:event_btn02ActionPerformed
+
+    private void rb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rb1ActionPerformed
+
+    private void tfParcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfParcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfParcActionPerformed
 
     /**
      * @param args the command line arguments
@@ -450,11 +616,16 @@ public class SocioTorcedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField lbl;
     private javax.swing.JRadioButton rb1;
     private javax.swing.JRadioButton rb2;
     private javax.swing.JRadioButton rb3;
     private javax.swing.JTextArea ta;
+    private javax.swing.JTextField tfParc;
+    private javax.swing.JTextArea tp;
     // End of variables declaration//GEN-END:variables
 }
